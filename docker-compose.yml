@@ -1,0 +1,15 @@
+services:
+  client:
+    build: .
+    volumes:
+      - .:/code
+    links:
+      - server
+    command: python client.py
+  server:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    command: python server.py
